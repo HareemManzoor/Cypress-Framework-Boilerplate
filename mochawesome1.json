@@ -1,0 +1,171 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 1,
+    "failures": 0,
+    "start": "2019-10-08T07:38:50.457Z",
+    "end": "2019-10-08T07:38:50.457Z",
+    "duration": 38454,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666667,
+    "pendingPercent": 33.333333333333336,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "cb4a46c7-cc1b-4d94-a22b-0dc6367c9034",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9c2587b4-ec0a-44b0-9dd8-821a84f18f44",
+          "title": "Sign In",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should login to the url",
+              "fullTitle": "Sign In Should login to the url",
+              "timedOut": null,
+              "duration": 13513,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "\"../cypress/videos/main.js.mp4\"",
+              "code": "var signIn = new _SignInSignoutPage.default();\nsignIn.login();\ncy.wait(5000);\ncy.get(\"[role='alertdialog']\").invoke('text').then(function (text) {\n  //invoke(text) yields the text of the HTML element \n  var toastText = text;\n  cy.debug();\n  expect(toastText).to.equal(\" Welcome Hareem Company \");\n});",
+              "err": {},
+              "uuid": "8e6ae663-aeff-44c6-bfd2-ea8ec944ea21",
+              "parentUUID": "9c2587b4-ec0a-44b0-9dd8-821a84f18f44",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8e6ae663-aeff-44c6-bfd2-ea8ec944ea21"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13513,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "a60452be-c14b-4d53-905b-5283b0430236",
+          "title": "Navigation Bar",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "User should be able to click Header Menu",
+              "fullTitle": "Navigation Bar User should be able to click Header Menu",
+              "timedOut": null,
+              "duration": 24941,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "\"../cypress/videos/main.js.mp4\"",
+              "code": "var signIn = new _SignInSignoutPage.default();\nsignIn.login();\ncy.wait(20000);\nvar agentTab = new _HeaderLinks.default();\nagentTab.agentsTabNavigation();",
+              "err": {},
+              "uuid": "aa436f1d-f201-4774-a51f-d71156453526",
+              "parentUUID": "a60452be-c14b-4d53-905b-5283b0430236",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "User should be able to add Agent",
+              "fullTitle": "Navigation Bar User should be able to add Agent",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": "\"../cypress/videos/main.js.mp4\"",
+              "code": "",
+              "err": {},
+              "uuid": "8e6afce1-a265-4572-ab79-ee66d1d6f314",
+              "parentUUID": "a60452be-c14b-4d53-905b-5283b0430236",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aa436f1d-f201-4774-a51f-d71156453526"
+          ],
+          "failures": [],
+          "pending": [
+            "8e6afce1-a265-4572-ab79-ee66d1d6f314"
+          ],
+          "skipped": [],
+          "duration": 24941,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportTitle": "My Custom Title",
+        "reportDir": "mochawesome-report",
+        "viewportWidth": 1334,
+        "viewportHeight": 720,
+        "timestamp": "mmddyyyy_HHMMss",
+        "inline": true,
+        "takePassedScreenshot": true,
+        "clearOldScreenshots": true,
+        "shortScrFileNames": true
+      },
+      "version": "4.0.1"
+    }
+  }
+}
