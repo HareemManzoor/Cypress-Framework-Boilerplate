@@ -1,3 +1,4 @@
+/// <reference types="Cypress" />
 import SignInSignoutPage from '../Pages/SignInSignoutPage';
 
 beforeEach(() => {

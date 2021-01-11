@@ -1,3 +1,4 @@
+/// <reference types="Cypress" />
 class AgentsOperations{
   addAgents(){
      cy.name(".btn btn-default").click();

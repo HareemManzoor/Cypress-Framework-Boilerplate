@@ -1,3 +1,4 @@
+/// <reference types="Cypress" />
 import SignInSignoutPage from '../Pages/SignInSignoutPage';
 import HeaderLinks from '../Helpers/HeaderLinks';
 import AgentsOperations from '../Pages/AgentsOperations'
@@ -11,7 +12,7 @@ describe('Navigation Bar', () => {
   //   })
 
   it('User should be able to click Header Menu', () => {
-    
+
     const signIn = new SignInSignoutPage();
     signIn.login();
     cy.wait(20000)

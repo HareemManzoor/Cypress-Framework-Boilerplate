@@ -1,5 +1,5 @@
+/// <reference types="Cypress" />
 class SignInSignoutPage {
-
    login() {
     cy.fixture('config').then((config)  => { 
     var url=config.url  
