@@ -38,6 +38,6 @@
   - Execute the commands mentioned in package.json file.
 
 ### Author:
-Hareem Manzoor
+HareemManzoor
 @hareem.manzoor 
 
