@@ -28,7 +28,7 @@
 - Right click on the directory and select git bash here.
 - Clone cypress-frame project using
 ```sh
-   git clone http://10.0.0.192/hareem.manzoor/cypress-framework.git
+   https://github.com/HareemManzoor/Cypress-Framework-Boilerplate.git
 ```
   - Open visual code studio.
   - Open folder cypress-framework.
