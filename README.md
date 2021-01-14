@@ -6,7 +6,12 @@
  - Download Node Js https://nodejs.org/en/download/
  - Install git bash from https://git-scm.com/download/win
  - Set environment variables . (Path to node Js and yarn folder)
- - Install Cypress by
+ - Now go to root folder and create a package.json file by
+ ```sh
+   npm init
+  ```
+  ##### Note: npm -init is only required if you are creating folder from scratch. Otherwise you dont need to add a new package.json file if you are cloning this project. 
+ - Install cypress by:
   ```sh
    npm install cypress --save-dev
   ```
