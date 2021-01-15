@@ -13,6 +13,7 @@ describe('Women tab test cases', () => {
         woman.hoverProductDetail()
         woman.addToCart()
         woman.closeModal()
+        woman.getSearchQuery().clear()
     })
     it('To verify that user is able to clear the search query tab.', () => {
         woman.getSearchQuery().type('Blouse')
@@ -84,11 +85,12 @@ describe('Women tab test cases', () => {
         cy.log('Removing product from cart.')
         woman.removeFromCartFromCartLandingPage(productName)
     })
-    it.only('To verify that the women landing page contains 6 categories under Information block.', () => {
+    it('To verify that the women landing page contains 6 categories under Information block.', () => {
         woman.goToWomanTab()
         woman.verifyInformationCategory()
+    })
+    it('To verify that 3 sizes are available for women dress that is Small(S), Medium(M), Large(L).', () => {
+        woman.goToWomanTab()
+        woman.verifyDressSize()
     });
-
-
-
 });

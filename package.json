@@ -12,7 +12,6 @@
     "cli-truncate": "^0.2.1",
     "concat-stream": "^1.6.2",
     "cross-spawn": "^7.0.3",
-    "cypress": "^6.2.1",
     "cypress-react-selector": "^2.2.2",
     "cypress-xpath": "^1.6.1",
     "ecc-jsbn": "^0.1.2",
@@ -96,7 +95,9 @@
     "which": "^2.0.2"
   },
   "devDependencies": {
-    "@4tw/cypress-drag-drop": "^1.4.0"
+    "@4tw/cypress-drag-drop": "^1.4.0",
+    "@testing-library/cypress": "^7.0.3",
+    "cypress": "^6.2.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

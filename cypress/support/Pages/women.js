@@ -119,7 +119,7 @@ class women {
             .find('.icon-trash')    // finds the delete button
             .click()
     }
-    
+
     verifyInformationCategory() {
         cy.get('[class="block informations_block_left"]')
             .find('li')
@@ -131,6 +131,16 @@ class women {
                 expect($item[3]).to.contain.text('About us')
                 expect($item[4]).to.contain.text('Secure payment')
                 expect($item[5]).to.contain.text('Our stores')
+            })
+    }
+    verifyDressSize() {
+        cy.get('#ul_layered_id_attribute_group_1')
+            .find('li')
+            .should('have.length', 3)
+            .then(($item) => {
+                expect($item[0]).to.contain.text('S')
+                expect($item[1]).to.contain.text('M')
+                expect($item[2]).to.contain.text('L')
             })
     }
 }
