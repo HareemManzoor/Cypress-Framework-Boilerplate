@@ -5,6 +5,19 @@ describe('Women tab test cases', () => {
 
     before(() => {
         cy.visit(Cypress.config().baseUrl)
+        cy.fixture('config').as('myUserFixture')
+        cy.get('@myUserFixture').then(user => {
+            cy.login(user)
+        })
+    })
+
+    beforeEach(() => {
+        Cypress.Cookies.defaults({
+            preserve: (cookie) => {
+                return cookie.name
+                //['PrestaShop-a30a9934ef476d11b6cc3c983616e364']
+            }
+        })
     })
     it('To verify that user should be able to search and add item in cart.', () => {
         woman.goToWomanTab()
