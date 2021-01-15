@@ -13,6 +13,7 @@
     "concat-stream": "^1.6.2",
     "cross-spawn": "^7.0.3",
     "cypress": "^6.2.1",
+    "cypress-react-selector": "^2.2.2",
     "cypress-xpath": "^1.6.1",
     "ecc-jsbn": "^0.1.2",
     "error-ex": "git+https://github.com/Qix-/node-error-ex.git",
@@ -94,7 +95,9 @@
     "verror": "^1.10.0",
     "which": "^2.0.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@4tw/cypress-drag-drop": "^1.4.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

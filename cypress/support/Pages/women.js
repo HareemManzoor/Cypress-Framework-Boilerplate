@@ -11,10 +11,11 @@ class women {
         cy.get('#searchbox > .btn').click()
         cy.get('.page-heading.product-listing [class = "lighter"]').should('contain', 'Blouse')
     }
-    productDetail() {
+    hoverProductDetail() {
         cy.get('.left-block > .product-image-container').trigger('mouseover')
         cy.get('.addToWishlist').should('exist')
     }
+    //Function to add product to cart by clicking on the modal appearing on product hover.
     addToCart() {
         cy.get('.ajax_add_to_cart_button > span').click();
     }
@@ -38,26 +39,71 @@ class women {
     getSubCategoryFromWomenLandingPage() {
         return cy.get('.subcategory-name')
     }
-    checkProductQuantity() {
-        //This is correct method but it's not working on site.
-        // const product= [
-        // "Faded Short Sleeve T-shirts",
-        // "Blouses",
-        // "Printed Dress", 
-        // "Printed Dress" , 
-        // "Printed Summer Dress",
-        // "Printed Summer Dress",
-        // "Printed Chiffon Dress"
-        //     ];
-        // //you can test your lists using .then() or .each()
-        // cy.get('.product_list').each((item, index) => {
-        //     cy.wrap(item)
-        //       .should('contain.text', product[index])
-        // })
+    checkProductQuantity() { 
+     cy.get('.product_list')  
+     .find('li > .product-container')
+     .should('have.length', 7)  
 
-        
+    }
+    selectComposition(composition) {
+        if (composition == 'Cotton') {
+            cy.get('span input').check('5_5')
+        }
+        if (composition == 'Viscose') {
+            cy.get('span input').check('3_5')
+        }
+        if (composition == 'Viscose') {
+            cy.get('span input').check('1_5')
+        }
     }
 
+    moveSlider() {
+        //npm install --save-dev @4tw/cypress-drag-drop please see the usage before dowloading. Below method doesnt use this plugin.
+        cy.get('[class="ui-slider-handle ui-state-default ui-corner-all"]')
+            .eq(0)
+            .click()
+            .wait(1000)
+            .type('{rightarrow}{rightarrow}{rightarrow}{rightarrow}')
+    }
+    removeFromCart() {
+        cy.contains('Cart')
+            .trigger('mouseover')
+
+        cy.get('.ajax_cart_block_remove_link')
+            .click({ force: true })
+
+        cy.get('.ajax_cart_no_product')
+            .should('contain', '(empty)')
+    }
+
+    clickListView() {
+        cy.get('[id="list"]').click()
+    }
+    //Function to add product in cart by clicking on the Add to Cart button on women tab landing page
+    addToCartFromWomenLandingPage(productName) {
+        cy.get('.product-name').then(() => {
+            if (productName == "Faded Short Sleeve T-shirts") {
+                cy.get('[title="Add to cart"]')
+                    .eq(0)
+                    .click()
+            }
+            if (productName == "Blouse") {
+                cy.get('[title="Add to cart"]')
+                    .eq(1)
+                    .click()
+            }
+        })
+        cy.get('.layer_cart_product > h2').should('contain', 'Product successfully added to your shopping cart')
+    }
+    goToShoppingCartPage() {
+        cy.get('[title="View my shopping cart"]').click()
+    }
+    removeFromCartFromCartLandingPage(product) {
+            cy.contains('td', product)  // gives you the cell 
+                .siblings()             // gives you all the other cells in the row
+                .find('.icon-trash')    // finds the delete button
+                .click()
+    }
 
 }
 export default women
