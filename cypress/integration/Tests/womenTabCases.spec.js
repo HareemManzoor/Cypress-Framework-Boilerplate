@@ -44,9 +44,9 @@ describe('Women tab test cases', () => {
         woman.getSubCategoryFromWomenLandingPage().eq(0).should('contain', 'Tops')
         woman.getSubCategoryFromWomenLandingPage().eq(1).should('contain', 'Dresses')
     })
-    it.only('To verify that women landing page has 7 products.',() => {
+    it('To verify that women landing page has 7 products.', () => {
         woman.goToWomanTab()
-       woman.checkProductQuantity()
+        woman.checkProductQuantity()
     })
     it('To verify that user can select different compositions from left pane of the screen.', () => {
         var composition = 'Cotton'
@@ -67,7 +67,7 @@ describe('Women tab test cases', () => {
     })
     it('To verify that user is able to add product from the landing page and can delete it from cart by navigating to cart page. ', () => {
         var productName = "Faded Short Sleeve T-shirts"
-            
+
         woman.goToWomanTab()
         woman.clickListView()
 
@@ -76,17 +76,18 @@ describe('Women tab test cases', () => {
         woman.closeModal()
 
         cy.log('Adding product to cart.')
-        productName = "Blouse" 
+        productName = "Blouse"
         woman.addToCartFromWomenLandingPage(productName)
         woman.closeModal()
         woman.goToShoppingCartPage()
 
         cy.log('Removing product from cart.')
         woman.removeFromCartFromCartLandingPage(productName)
-
-
     })
-     
+    it.only('To verify that the women landing page contains 6 categories under Information block.', () => {
+        woman.goToWomanTab()
+        woman.verifyInformationCategory()
+    });
 
 
 
