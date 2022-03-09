@@ -1,8 +1,8 @@
-class women {
+export class women {
 
     goToWomanTab() {
-        cy.get('.sf-menu > :nth-child(1) > [href="http://automationpractice.com/index.php?id_category=3&controller=category"]').click()
-        cy.get('.page-heading.product-listing [class = "cat-name"]').should('contain', 'Women')
+        cy.visit('http://automationpractice.com/index.php')
+        cy.contains('Women', { matchCase: false }).first().click({ force: true })
     }
 
     getSearchQuery() {
@@ -40,7 +40,7 @@ class women {
         cy.get('span[class="category-name"]').should('contain', category)
     }
 
-    goToSubCategoryProduct(category) {
+    verifySubCategoryProduct(category) {
         cy.get('.subcategory-name').contains(category).click()
         cy.get('span[class="category-name"]').should('contain', category)
     }
@@ -93,31 +93,24 @@ class women {
     }
 
     //Function to add product in cart by clicking on the Add to Cart button on women tab landing page
-    addToCartFromWomenLandingPage(productName) {
-        cy.get('.product-name').then(() => {
-            if (productName == "Faded Short Sleeve T-shirts") {
-                cy.get('[title="Add to cart"]')
-                    .eq(0)
-                    .click()
-            }
-            if (productName == "Blouse") {
-                cy.get('[title="Add to cart"]')
-                    .eq(1)
-                    .click()
-            }
-        })
-        cy.get('.layer_cart_product > h2').should('contain', 'Product successfully added to your shopping cart')
+    addToCartFromWomenLandingPage() {
+        cy.visit('http://automationpractice.com/index.php')
+        cy.contains('Add to cart', { matchCase: false }).first().click({ force: true })
+        cy.get('.cross', { timeout: 5000 }).click({ force: true })
+        cy.get('#searchbox').scrollTo('center', { ensureScrollable: false })
+        cy.get('.cart_block').invoke('show')
+        cy.contains('Check out', { matchCase: false }).click()
+        cy.get('.navigation_page').should('have.text', 'Your shopping cart')
     }
 
     goToShoppingCartPage() {
         cy.get('[title="View my shopping cart"]').click()
     }
 
-    removeFromCartFromCartLandingPage(product) {
-        cy.contains('td', product)  // gives you the cell 
-            .siblings()             // gives you all the other cells in the row
-            .find('.icon-trash')    // finds the delete button
-            .click()
+    removeFromCartFromCartLandingPage() {
+        cy.get('#cart_summary')
+            .find('.cart_quantity_delete')
+            .click({ force: true })
     }
 
     verifyInformationCategory() {
@@ -144,4 +137,3 @@ class women {
             })
     }
 }
-export default women

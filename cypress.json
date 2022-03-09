@@ -2,5 +2,7 @@
     "baseUrl": "http://automationpractice.com/index.php",
     "videosFolder": "cypress/videos",
     "viewportHeight": 1900,
-    "viewportWidth": 2500
+    "viewportWidth": 2500,
+    "projectId": "gqkvb5",
+    "chromeWebSecurity" : false 
 }

@@ -11,3 +11,4 @@ Cypress.Commands.add('login', (user) => {
     // verify that the correct page is available
     cy.get('[title="Log me out"]').click()
   })
+  
