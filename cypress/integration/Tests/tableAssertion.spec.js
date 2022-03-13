@@ -7,7 +7,7 @@ describe('Table value extract and assertion', () => {
     })
 
     //This method will work when there is no 'th' element under 'tr'
-    it.skip('Get the whole table data', () => {
+    it('Get the whole table data', () => {
         cy.get('table[name="courses"] >tbody >tr').each(($row, index, $rows) => {
             cy.wrap($row).within(() => {
                 (
@@ -27,9 +27,11 @@ describe('Table value extract and assertion', () => {
         cy.get('table[name="courses"] >tbody >tr:eq(4) >td').should('have.length', '3')
     })
 
-    it('Getting column data in single specific row method:1', () => {
+    it('Getting column data of single specific row method:1', () => {
+        var temp = [];
         cy.get('table[name="courses"] >tbody >tr:eq(4) >td').each(($text) => {
-            cy.log($text.text())
+            temp.push($text.text())
+            cy.log(temp)
         })
     })
 
@@ -37,8 +39,8 @@ describe('Table value extract and assertion', () => {
     it('Getting all columns data in single specific row method:2', () => {
         cy.get('table[name="courses"] >tbody >tr').eq(4).within(() => { //return 4th row
             cy.get('td').each(($text) => {
-                cy.log($text.text())
             })
+            cy.log($text.text())
         })
     })
 
@@ -50,7 +52,6 @@ describe('Table value extract and assertion', () => {
                     cy.log($col.text())
                 })
             })
-
         })
     })
 
