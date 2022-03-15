@@ -1,2 +1,7 @@
-
 node_modules
+cypress/screenshots
+cypress/reports
+cypress/videos
+package.json
+package-lock.json
+mochawesome1.json

@@ -1,3 +1,4 @@
+import 'cypress-wait-until';
 Cypress.Commands.add('login', (user) => {
     // verify that the correct page is available
     cy.get('[title="Log in to your customer account"]').click()

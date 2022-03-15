@@ -1,21 +1,33 @@
 describe('Table value extract and assertion', () => {
 
-    beforeEach(() => {
-        cy.visit('https://codenboxautomationlab.com/practice/')
-        cy.url().should('include', 'codenbox')
-        cy.wait(3000)
-    })
+    //  beforeEach(() => {
+    //       cy.visit('https://codenboxautomationlab.com/practice/')
+    //       cy.url().should('include', 'codenbox')
+    //      cy.wait(3000)
+    //  })
 
-    //This method will work when there is no 'th' element under 'tr'
     it('Get the whole table data', () => {
-        cy.get('table[name="courses"] >tbody >tr').each(($row, index, $rows) => {
-            cy.wrap($row).within(() => {
-                (
-                    cy.get('td').each(($cellData, index, $columns) => {
-                        cy.log($cellData.text())
+        var temp = [];
+        cy.visit('https://codenboxautomationlab.com/practice/')
+        cy.get('table[name="courses"] >tbody >tr').then($body => {
+            cy.waitUntil(() => 
+                cy.get('table[name="courses"] >tbody >tr')
+                .then($selector => $selector.is(':visible') === true), { timeout: 60000 }
+                       )
+            if ($body.find('td').is(':visible')) {
+                cy.get('table[name="courses"] >tbody').each(($row, index, $rows) => {
+                    cy.wrap($row).within(() => {
+                        cy.get('td').each(($cellData, index, $columns) => {
+                            cy.log($cellData.text())
+                            temp.push($cellData.text())
+                            cy.log(temp)
+                        })
                     })
-                )
-            })
+                })
+            }
+            else {
+                cy.log('A row doesnt exists')
+            }
         })
     })
 
@@ -39,15 +51,15 @@ describe('Table value extract and assertion', () => {
     it('Getting all columns data in single specific row method:2', () => {
         cy.get('table[name="courses"] >tbody >tr').eq(4).within(() => { //return 4th row
             cy.get('td').each(($text) => {
+                cy.log($text.text())
             })
-            cy.log($text.text())
         })
     })
 
     //Alternative Method when first 'tr' element doesn't contain the 'th'
     it.skip('Getting all columns data in single specific row method:3', () => {
         cy.get('table[name="courses"] >tbody >tr').each(($row) => {   //loop across each row
-            cy.wrap($row).within(() => { 
+            cy.wrap($row).within(() => {
                 cy.get('td').each(($col) => {
                     cy.log($col.text())
                 })
@@ -72,7 +84,7 @@ describe('Table value extract and assertion', () => {
     it('Checking for a specific row and specific column in the static table method:2', () => {
         cy.get('table[name="courses"] > tbody > tr').eq(10).within(() => {
             cy.get('td').each(($el) => {
-                if($el.text() == '50') {
+                if ($el.text() == '50') {
                     cy.log('50 found')
                     cy.log($el.text())
                 }
