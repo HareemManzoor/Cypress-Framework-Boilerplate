@@ -1,4 +1,3 @@
-/// <reference types="cypress" />
 import { women } from '../../support/Pages/women'
 describe('Women tab test cases', () => {
 

@@ -1,14 +1,13 @@
 describe('Table value extract and assertion', () => {
 
-    //  beforeEach(() => {
-    //       cy.visit('https://codenboxautomationlab.com/practice/')
-    //       cy.url().should('include', 'codenbox')
-    //      cy.wait(3000)
-    //  })
+     beforeEach(() => {
+          cy.visit('https://codenboxautomationlab.com/practice/')
+          cy.url().should('include', 'codenbox')
+         cy.wait(3000)
+     })
 
     it('Get the whole table data', () => {
         var temp = [];
-        cy.visit('https://codenboxautomationlab.com/practice/')
         cy.get('table[name="courses"] >tbody >tr').then($body => {
             cy.waitUntil(() => 
                 cy.get('table[name="courses"] >tbody >tr')

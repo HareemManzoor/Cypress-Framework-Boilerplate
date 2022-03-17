@@ -1,4 +1,3 @@
-/// <reference types="cypress" />
 import { dresses } from '../../support/Pages/dresses'
 import '../../support/commands'
 

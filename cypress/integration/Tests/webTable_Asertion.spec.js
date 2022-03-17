@@ -1,4 +1,3 @@
-/// <reference types="cypress" />
 chai.use(require('chai-sorted'))
 
 describe(' Web Table Assertions',() => {
