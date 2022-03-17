@@ -4,7 +4,6 @@ describe('Alert, New Tab and New Window assertions', () => {
     beforeEach(() => {
         cy.visit('https://codenboxautomationlab.com/practice/')
         cy.url().should('include', 'codenbox')
-        // cy.wait(3000)
     })
 
     it('Verify that user is able to open url in new window', () => {
@@ -54,7 +53,7 @@ describe('Alert, New Tab and New Window assertions', () => {
         cy.get('.mouse-hover').contains('Mouse Hover').then($el => {
             cy.get('#mousehover').scrollTo('center', { ensureScrollable: false })
             cy.wrap($el).invoke('show')
-            cy.get('.mouse-hover-content > a').eq(0).should('have.text', 'Top')
+            cy.get('.mouse-hover-content > a').eq(0).invoke('text').should('equal', 'Top')
         })
     })
 
